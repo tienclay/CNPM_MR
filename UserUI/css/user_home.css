@@ -1,0 +1,143 @@
+.body_main {
+	margin-top: 40px;
+}
+
+h2 {
+	color: #3700b3;
+	font-family: Montserrat;
+	font-size: 28px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 64px; /* 144% */
+	letter-spacing: -0.25px;
+}
+h1 {
+	color: #3700b3;
+	text-align: right;
+	font-family: Montserrat;
+	font-size: 50px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 72px; /* 90% */
+	letter-spacing: -0.4px;
+}
+.text_main {
+	padding-top: 20px;
+}
+h4 {
+	color: #000;
+	font-feature-settings: "clig" off, "liga" off;
+	font-family: Montserrat;
+	font-size: 20px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 41.5px; /* 138.333% */
+}
+.main_image {
+	border-radius: 10%;
+	box-shadow: 0 6px 10px rgba(0, 0, 0, 0.4);
+}
+
+.link-print,
+.link-queue,
+.link-history {
+	margin-right: 40px; /* Adjust the value as needed */
+}
+
+.btn-print {
+	background-color: linear-gradient(
+		84deg,
+		#7a34d4 11.41%,
+		rgba(71, 57, 212, 0.93) 14.36%,
+		rgba(91, 79, 225, 0.92) 14.8%,
+		rgba(15, 150, 208, 0.8) 92.15%
+	);
+}
+a {
+	text-decoration: none;
+}
+
+.text-queue,
+.text-history {
+	color: #000;
+	text-align: center;
+	font-family: Montserrat;
+	font-size: 20px;
+	font-style: normal;
+	font-weight: 400;
+}
+
+svg > text {
+	color: #fff;
+	text-align: center;
+
+	font-size: 40px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 24px; /* 60% */
+}
+.btn-pr {
+	width: 180px;
+	height: 50px;
+	border-radius: 2px;
+	background: #4834d4;
+}
+.btn-more {
+	width: 180px;
+	height: 50px;
+	border-radius: 2px;
+	border: 4px solid #4834d4;
+	background: var(--white, #fff);
+}
+
+.text-pr {
+	color: var(--colour-secondary-white-100-general, #fff);
+	text-align: center;
+	font-feature-settings: "clig" off, "liga" off;
+	font-family: Montserrat;
+	font-size: 20px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 26px; /* 86.667% */
+}
+
+.text-more {
+	color: #4834d4;
+	text-align: center;
+	font-feature-settings: "clig" off, "liga" off;
+	font-family: Montserrat;
+	font-size: 20px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 26px; /* 86.667% */
+}
+
+.text-queue:hover {
+	color: blue;
+	zoom: 1.1;
+}
+.text-history:hover {
+	color: blue;
+	zoom: 1.1;
+}
+
+.in:hover {
+	zoom: 1.03;
+}
+.login_acc {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	align-content: space-between;
+	gap: 10px;
+}
+.img_message {
+	border: none;
+	padding: 0;
+	background: none;
+}
+.btn_noti {
+	border: none;
+	padding: 0;
+	background: none;
+}

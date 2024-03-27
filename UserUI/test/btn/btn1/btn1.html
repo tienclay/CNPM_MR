@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+   
+   <div class="content-btn1">
+
+      <div class="config">
+         <h3>Thông số in</h3>
+     
+         <div class="config-action">
+
+            <form action="" id="printForm">
+               <label>Hướng in: </label> <br />
+               <input list="direction" placeholder="Select" value="Portrait"/>
+               <datalist id="direction">
+                   <option value="Portrait"></option>
+                   <option value="Landscape"></option>
+               </datalist>
+           </form>
+       
+           <form action="" id="pageRangeForm">
+               <label>Số trang: </label> <br />
+               <input type="text" placeholder="Enter page range" pattern="[0-9,-]+" title="Enter a valid page range" value="All pages"/>
+           </form>
+       
+           <form action="" id="copyForm">
+               <label>Số bản: </label> <br />
+               <input type="number" placeholder="Enter number of copies" min="1" />
+           </form>
+       
+           <form action="" id="printTypeForm">
+               <label>Kiểu in: </label> <br />
+               <input list="pages_per_sheet" placeholder="Select" />
+               <datalist id="pages_per_sheet">
+                   <option value="1 mặt"></option>
+                   <option value="2 mặt"></option>
+               </datalist>
+           </form>
+       
+           <form action="" id="paperSizeForm">
+               <label>Cỡ giấy: </label> <br />
+               <input list="paper_size" placeholder="Select" />
+               <datalist id="paper_size">
+                   <option value="A4"></option>
+                   <option value="A3"></option>
+               </datalist>
+           </form>
+       
+           <button id="save_config" type="button" onclick="savePrintSettings()">Save</button>
+         </div>
+     </div>
+     <h3>File in</h3>
+   </div>
+  
+
+     
+    </div>
+  </body>
+</html>

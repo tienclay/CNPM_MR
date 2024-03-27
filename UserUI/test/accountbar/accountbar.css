@@ -1,0 +1,17 @@
+.login_acc {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-content: space-between;
+  gap: 10px;
+}
+.img_message {
+  border: none;
+  padding: 0;
+  background: none;
+}
+.btn_noti {
+  border: none;
+  padding: 0;
+  background: none;
+}

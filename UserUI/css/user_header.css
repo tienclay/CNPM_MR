@@ -1,0 +1,135 @@
+.navbar-brand {
+	display: flex;
+	align-items: center;
+	margin-left: 16px;
+}
+
+.navbar a:hover {
+	transform: scale(1.1);
+}
+.login_acc button:hover {
+	transform: scale(1.1);
+	background-color: #ccc !important;
+}
+
+.navbar-brand svg {
+	margin-right: 0; /* Adjust the margin as needed */
+}
+
+.mainname {
+	display: flex;
+	width: auto;
+	flex-direction: row;
+	justify-content: center;
+	flex-shrink: 0;
+	font-family: Nunito;
+	font-size: 30px;
+	font-style: normal;
+	font-weight: 800;
+	line-height: normal;
+	letter-spacing: 4px;
+
+	background: linear-gradient(
+		86deg,
+		#7a34d4 0.4%,
+		rgba(15, 150, 208, 0.8) 93.72%
+	);
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+a {
+	text-decoration: none;
+}
+.qr-icon {
+	width: 40px;
+	height: 40px;
+}
+.qr-icon:hover {
+	transform: scale(1.1);
+}
+.link-print,
+.link-queue,
+.link-history {
+	margin-right: 0; /* Adjust the value as needed */
+}
+
+.text-queue,
+.text-history {
+	color: #000;
+	text-align: center;
+	font-family: Montserrat;
+	font-size: 20px;
+	font-style: normal;
+	font-weight: 400;
+}
+.text-queue:hover {
+	color: blue;
+}
+
+.text-history:hover {
+	color: blue;
+}
+
+.login_acc {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	align-content: space-between;
+	gap: 10px;
+}
+
+.in:hover {
+	transform: scale(1.03);
+}
+
+/* #qr-box::before { */
+/* content: ""; */
+/* border-top: ; */
+/* } */
+
+#qr-box {
+	--b: 5px; /* border thickness */
+	--c: #0000 25%, darkblue 0; /* define the color here */
+	padding: 10px;
+	background: conic-gradient(
+				from 90deg at top var(--b) left var(--b),
+				var(--c)
+			)
+			0 0,
+		conic-gradient(from 180deg at top var(--b) right var(--b), var(--c))
+			100% 0,
+		conic-gradient(from 0deg at bottom var(--b) left var(--b), var(--c)) 0
+			100%,
+		conic-gradient(from -90deg at bottom var(--b) right var(--b), var(--c))
+			100% 100%;
+	background-size: 50px 50px; /* adjust border length here */
+	background-repeat: no-repeat;
+	transition: 0.6s;
+	cursor: pointer;
+}
+
+#qr-box:hover {
+	background-size: 51% 51%;
+}
+.Montserrat {
+	font-family: "Montserrat", sans-serif;
+	font-weight: 700;
+}
+.theme-color {
+	color: #4834d4;
+}
+
+#successToast {
+	border-left-color: rgba(0, 204, 153, 1);
+	border-left-width: 3.8px;
+	border-radius: 5px;
+	background: #e3f7f2;
+}
+
+#failToast {
+	border-left-color: #eb5757;
+	border-left-width: 3.8px;
+	border-radius: 5px;
+	background: #faecec;
+}

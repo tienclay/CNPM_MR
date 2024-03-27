@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Nunito:wght@300;600;700;800;900;1000&family=Overpass:wght@800&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+			crossorigin="anonymous"
+		/>
+		<link
+			rel="shortcut icon"
+			href="./images/icon.ico"
+			type="image/x-icon"
+		/>
+		<title>Trang chủ</title>
+
+		<link rel="stylesheet" href="./css/user_home.css" />
+		<link rel="stylesheet" href="./css/user_header.css" />
+		<link rel="stylesheet" href="./css/utils.css" />
+	</head>
+
+	<body>
+		<div class="headerbar" id="headerbar"></div>
+
+		<div class="container body_main">
+			<div class="row">
+				<div class="col-md-8">
+					<div class="row text_main">
+						<h2 class="col-md-12">
+							Trường đại học Bách Khoa - Đại học Quốc Gia TPHCM
+						</h2>
+					</div>
+
+					<div class="row">
+						<h2 class="col-md-7">
+							Student Smart Printing Service
+							<br />
+							Dịch vụ in ấn thông minh
+						</h2>
+					</div>
+					<div class="row">
+						<h4 class="col-md-7">
+							Nơi bạn có thể thực hiện thao tác in ấn nhanh chóng
+							từ xa, tiện lợi và thông minh. Kết hợp cùng các nền
+							tảng thanh toán online.
+						</h4>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<img
+						class="main_image"
+						src="./images/user_home/bia.jpg"
+						height="500px"
+						style="transform: rotate(-90deg)"
+						alt=""
+					/>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-2">
+					<button class="btn-pr">
+						<span class="text-pr">In ngay</span>
+					</button>
+				</div>
+				<div class="col-md-2">
+					<button class="btn-more">
+						<span class="text-more">Tìm hiểu thêm</span>
+					</button>
+				</div>
+				<div class="col-md-5"></div>
+				<div class="col-md-3">
+					<h1>Chào mừng trở lại!</h1>
+				</div>
+			</div>
+		</div>
+
+		<div class="toast-container position-fixed bottom-0 start-0 p-3">
+			<div
+				id="successToast"
+				class="toast"
+				role="alert"
+				aria-live="assertive"
+				aria-atomic="true"
+			>
+				<div class="toast-body pt-0">
+					<div class="row d-flex justify-content-end">
+						<button
+							type="button"
+							class="btn-close"
+							data-bs-dismiss="toast"
+							aria-label="Close"
+						></button>
+					</div>
+					<div class="row-flex d-flex">
+						<div class="ms-2 rounded-circle w-auto p-2 tick">
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								width="26"
+								height="24"
+								viewBox="0 0 26 22"
+								fill="none"
+							>
+								<path
+									d="M9.74981 16.8244L23.8322 0L26 2.5878L9.74981 22L0 10.353L2.16628 7.76524L9.74981 16.8244Z"
+									fill="white"
+								/>
+							</svg>
+						</div>
+						<div class="ms-2">
+							<span class="Montserrat">Thành công</span>
+							<br />
+							<span class="Montserrat-500 toast-message"
+								>Máy in đã được cập nhật thông tin</span
+							>́
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="toast-container position-fixed bottom-0 start-0 p-3">
+			<div
+				id="failToast"
+				class="toast"
+				role="alert"
+				aria-live="assertive"
+				aria-atomic="true"
+			>
+				<div class="toast-body pt-0">
+					<div class="row d-flex justify-content-end">
+						<button
+							type="button"
+							class="btn-close"
+							data-bs-dismiss="toast"
+							aria-label="Close"
+						></button>
+					</div>
+					<div class="row-flex d-flex">
+						<div class="rounded-circle w-auto p-2 cross">
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								width="26"
+								height="24"
+								viewBox="0 0 22 22"
+								fill="none"
+								class="pt-1"
+							>
+								<path
+									d="M9.42256 7.79002L16.4827 0.729919L18.4994 2.74668L11.4393 9.80678L18.4994 16.8669L16.4827 18.8836L9.42256 11.8235L2.36247 18.8836L0.345703 16.8669L7.4058 9.80678L0.345703 2.74668L2.36247 0.729919L9.42256 7.79002Z"
+									fill="white"
+								/>
+							</svg>
+						</div>
+						<div class="ms-2">
+							<span class="Montserrat">Thất bại</span>
+							<br />
+							<span class="Montserrat-500 toast-message"></span>́
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script
+		src="https://kit.fontawesome.com/92606ce77f.js"
+		crossorigin="anonymous"
+	></script>
+	<script
+		src="https://code.jquery.com/jquery-3.7.1.js"
+		integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+		crossorigin="anonymous"
+	></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+		crossorigin="anonymous"
+	></script>
+	<script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+		crossorigin="anonymous"
+	></script>
+	<script src="js/utils.js"></script>
+	<script src="js/user_header.js"></script>
+	<script src="js/user_home.js"></script>
+</html>

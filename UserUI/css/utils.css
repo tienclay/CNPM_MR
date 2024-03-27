@@ -1,0 +1,29 @@
+#successToast{
+    border-left-color: rgba(0, 204, 153, 1);
+    border-left-width: 3.8px;
+    border-radius: 5px;
+    background: #E3F7F2;
+}
+#failToast{
+    border-left-color: #EB5757;
+    border-left-width: 3.8px;
+    border-radius: 5px;
+    background: #FAECEC;
+}
+.tick{
+    background-color: rgba(0, 204, 153, 1);
+}
+.cross{
+    background-color: #EB5757;
+}
+.Montserrat{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+}
+.Montserrat-500{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+}
+.theme-color{
+    color: #4834D4;
+}

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SPSS-HOME</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Nunito:wght@300;600;700;800;900;1000&family=Overpass:wght@800&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.1/js/bootstrap-datepicker.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.1/css/bootstrap-datepicker.min.css"
+    />
+    <!-- Include Bootstrap Timepicker library -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/css/bootstrap-timepicker.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/js/bootstrap-timepicker.min.js"></script>
+    <link rel="stylesheet" href="./calendar.css" />
+  </head>
+  <body>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="panel">
+          <fieldset>
+            <div class="form-group">
+              <label for="datepicker1">Chọn ngày</label>
+              <div class="input-group">
+                <input type="text" class="form-control" id="datepicker1" />
+                <span class="input-group-addon">
+                  <i class="glyphicon glyphicon-calendar"></i>
+                </span>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="panel">
+          <fieldset>
+            <div class="form-group">
+              <label for="timepicker1">Chọn giờ</label>
+              <div class="input-group">
+                <input
+                  type="text"
+                  class="form-control timepicker"
+                  id="timepicker1"
+                />
+                <span class="input-group-addon"
+                  ><i class="glyphicon glyphicon-time"></i
+                ></span>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+      </div>
+    </div>
+    <script>
+      $(document).ready(function () {
+        var date = new Date();
+        var today = new Date(
+          date.getFullYear(),
+          date.getMonth(),
+          date.getDate()
+        );
+
+        // Datepicker initialization
+        $("#datepicker1").datepicker({
+          format: "mm/dd/yyyy",
+          todayHighlight: true,
+          startDate: today,
+          endDate: "12/25/2023",
+          autoclose: true,
+        });
+
+        // Set default date for datepicker
+        $("#datepicker1").datepicker("setDate", today);
+
+        // Timepicker initialization with restricted hours
+        $(".timepicker").timepicker({
+          showMeridian: false,
+          defaultTime: "07:00",
+          maxHours: 17,
+          minuteStep: 10,
+        });
+      });
+    </script>
+  </body>
+</html>

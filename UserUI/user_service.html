@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Nunito:wght@300;600;700;800;900;1000&family=Overpass:wght@800&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+			crossorigin="anonymous"
+		/>
+
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.1/css/bootstrap-datepicker.min.css"
+		/>
+
+		<!-- Include Bootstrap Timepicker library -->
+		<link
+			rel="stylesheet"
+			href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.10.0/jquery.timepicker.min.css"
+		/>
+
+		<link rel="stylesheet" href="./css/user_header.css" />
+		<link rel="stylesheet" href="./css/user_service.css" />
+		<link rel="stylesheet" href="./css/utils.css" />
+		<link rel="stylesheet" href="./css/user_selectprinter.css" />
+		<link
+			rel="shortcut icon"
+			href="./images/icon.ico"
+			type="image/x-icon"
+		/>
+		<title>Đăng ký in</title>
+	</head>
+
+	<body>
+		<div class="wrapper">
+			<div class="headerbar" id="headerbar"></div>
+
+			<div class="body_service">
+				<div class="container">
+					<div class="row gx-1 justify-content-between">
+						<div
+							class="col-md-6 preview d-flex align-items-center flex-column"
+						>
+							<div class="row p-0 btn-upload flex-column">
+								<div
+									class="row p-0 flex-grow-1 align-items-center justify-content-center"
+									id="drop_zone"
+								>
+									<div class="col-1 p-2">
+										<img
+											src="./images/user_service/left_arrow.png"
+											alt=""
+											class="d-none shift-page"
+											onclick="setViewPage(-1)"
+										/>
+									</div>
+									<div
+										class="col-10 h-100 d-flex justify-content-center align-items-center"
+									>
+										<canvas
+											id="pdf-preview"
+											width="1000"
+											height="1200"
+											class="d-none"
+										></canvas>
+										<div
+											class="d-flex flex-column align-items-center p-2 h-50 w-75 justify-content-center"
+											id="upload-button"
+										>
+											<h3 id="content-upload">
+												Tải file lên
+											</h3>
+											<br />
+											<i
+												id="icon-upload"
+												class="fa-solid fa-upload fa-2xl"
+												style="height: 24px"
+											></i>
+										</div>
+										<input
+											name="file"
+											type="file"
+											id="inputFile"
+											style="display: none"
+										/>
+									</div>
+									<div class="col-1 p-2">
+										<img
+											src="./images/user_service/right_arrow.png"
+											alt=""
+											class="d-none shift-page"
+											onclick="setViewPage(1)"
+										/>
+									</div>
+								</div>
+								<div
+									class="text-center pb-2"
+									id="page-indicator"
+								></div>
+							</div>
+							<div
+								class="text-center row"
+								id="preview-file-name"
+							></div>
+						</div>
+
+						<div class="col-md-6 register">
+							<div class="navbar navbar-light bg-light reg_bar">
+								<button class="col-md-4 btn-func" id="btn1">
+									1. Tải file lên
+								</button>
+								<button class="col-md-4 btn-func" id="btn2">
+									2. Chọn máy in
+								</button>
+								<button class="col-md-4 btn-func" id="btn3">
+									3. Đặt lịch in
+								</button>
+							</div>
+
+							<div class="print-function" id="infoDisplay">
+								<div id="content-btn1" class="d-none">
+									<h3>Thông số in</h3>
+									<div class="config">
+										<div class="config-action">
+											<form
+												id="printForm"
+												class="container-fluid d-flex flex-column"
+											>
+												<div class="row p-0 my-2">
+													<div
+														class="col-4 form-group"
+													>
+														<label
+															for="directionInput"
+															>Hướng in:
+														</label>
+														<select
+															id="directionInput"
+															name="directionInput"
+															class="form-control"
+														>
+															<option
+																value="Portrait"
+																selected
+															>
+																Portrait
+															</option>
+															<option
+																value="Landscape"
+															>
+																Landscape
+															</option>
+														</select>
+													</div>
+
+													<div
+														class="col-4 form-group"
+													>
+														<label
+															for="pageRangeBegin"
+															>In từ trang:
+														</label>
+														<input
+															type="number"
+															title="Enter a valid page range"
+															value="1"
+															min="1"
+															id="pageRangeBegin"
+															name="pageRangeBegin"
+															class="form-control"
+														/>
+													</div>
+
+													<div
+														class="col-4 form-group"
+													>
+														<label
+															for="pageRangeEnd"
+															>Đến trang:
+														</label>
+														<input
+															type="number"
+															title="Enter a valid page range"
+															value="0"
+															id="pageRangeEnd"
+															name="pageRangeEnd"
+															class="form-control"
+														/>
+													</div>
+												</div>
+
+												<div class="row p-0 my-2">
+													<div
+														class="col-4 form-group"
+													>
+														<label for="copy"
+															>Số bản:
+														</label>
+														<input
+															type="number"
+															min="1"
+															value="1"
+															id="copy"
+															name="copy"
+															class="form-control"
+														/>
+													</div>
+
+													<div
+														class="col-4 form-group"
+													>
+														<label for="printType"
+															>Kiểu in:
+														</label>
+														<select
+															id="printType"
+															name="printType"
+															class="form-control"
+														>
+															<option
+																value="1 mặt"
+																selected
+															>
+																1 mặt
+															</option>
+															<option
+																value="2 mặt"
+															>
+																2 mặt
+															</option>
+														</select>
+													</div>
+
+													<div
+														class="col-4 form-group"
+													>
+														<label for="paperSize"
+															>Cỡ giấy:
+														</label>
+														<select
+															id="paperSize"
+															name="paperSize"
+															class="form-control"
+														>
+															<option
+																value="A4"
+																selected
+															>
+																A4
+															</option>
+															<option value="A5">
+																A5
+															</option>
+														</select>
+													</div>
+												</div>
+												<div
+													class="row justify-content-end p-0 my-2"
+												>
+													<div class="col-2">
+														<button
+															id="save_config"
+															type="submit"
+														>
+															Lưu
+														</button>
+													</div>
+												</div>
+											</form>
+										</div>
+									</div>
+									<h3>File in</h3>
+									<div id="list-files"></div>
+								</div>
+
+								<div id="content-btn2" class="d-none">
+									<div class="table-title">
+										Máy in khả dụng
+									</div>
+									<div>
+										<table>
+											<thead>
+												<tr class="table-header">
+													<th></th>
+													<th>MODEL</th>
+													<th>ID</th>
+													<th>VỊ TRÍ</th>
+													<th>TÌNH TRẠNG</th>
+													<th></th>
+												</tr>
+											</thead>
+											<tbody></tbody>
+										</table>
+									</div>
+								</div>
+
+								<div id="content-btn3" class="d-none">
+									<form id="dateForm">
+										<label for="selectedDate">
+											Chọn ngày (trong vòng 7 ngày kế
+											tiếp, trong giờ hành chính):
+										</label>
+										<input
+											type="text"
+											id="selectedDate"
+											required
+										/>
+										<i class="fa-regular fa-calendar"></i>
+										<button
+											class="time-date"
+											type="button"
+											onclick="validateDate()"
+										>
+											Save
+										</button>
+									</form>
+									<form id="timeForm">
+										<label for="selectedTime">
+											Chọn giờ (trong khoảng 7:00 đến
+											17:00):
+										</label>
+										<input
+											type="text"
+											id="selectedTime"
+											required
+										/>
+										<i class="fa-regular fa-clock"></i>
+										<button
+											class="time-date"
+											type="button"
+											onclick="validateTime()"
+										>
+											Save
+										</button>
+									</form>
+									<button
+										type="button"
+										class="btn-select"
+										onclick="validateSettings()"
+									>
+										<img
+											src="./images/user_service/print_confirm.svg"
+										/>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- 2nd Tab confirm select printer modal -->
+			<div
+				class="modal fade"
+				id="selectPrinterModal"
+				tabindex="-1"
+				aria-labelledby="selectPrinterModalLabel"
+				aria-hidden="true"
+			>
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h1
+								class="modal-title fs-5"
+								id="selectPrinterModalLabel"
+							>
+								Xác nhận
+							</h1>
+							<button
+								type="button"
+								class="btn-close"
+								data-bs-dismiss="modal"
+								aria-label="Close"
+							></button>
+						</div>
+						<div class="modal-body">
+							Bạn có chắc muốn chọn máy in này không?
+						</div>
+						<div class="modal-footer">
+							<button
+								type="button"
+								class="btn btn-secondary"
+								data-bs-dismiss="modal"
+							>
+								Huỷ
+							</button>
+							<button
+								type="button"
+								class="btn btn-danger"
+								data-bs-dismiss="modal"
+								onclick="confirmSelectPrinter()"
+							>
+								Xác nhận
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- 3rd Tab confirm print modal -->
+			<div
+				class="modal fade"
+				id="confirmModal"
+				tabindex="-1"
+				aria-labelledby="confirmModalLabel"
+				aria-hidden="true"
+			>
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h1 class="modal-title fs-5" id="confirmModalLabel">
+								Thông báo
+							</h1>
+						</div>
+						<div class="modal-body">
+							Bạn có xác nhận muốn in tài liệu không?
+						</div>
+						<div class="modal-footer">
+							<button
+								type="button"
+								class="btn btn-secondary"
+								data-bs-dismiss="modal"
+							>
+								Huỷ
+							</button>
+							<button
+								type="button"
+								class="btn btn-danger"
+								data-bs-dismiss="modal"
+								onclick="confirmPrint()"
+							>
+								Xác nhận
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Toasts -->
+			<div class="toast-container position-fixed top-0 end-0 p-3">
+				<div
+					id="successToast"
+					class="toast"
+					role="alert"
+					aria-live="assertive"
+					aria-atomic="true"
+				>
+					<div class="toast-body pt-0">
+						<div class="row d-flex justify-content-end">
+							<button
+								type="button"
+								class="btn-close"
+								data-bs-dismiss="toast"
+								aria-label="Close"
+							></button>
+						</div>
+						<div class="row-flex d-flex">
+							<div
+								class="ms-2 my-3 rounded-circle w-auto p-2 tick"
+							>
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									width="22"
+									height="22"
+									viewBox="0 0 22 22"
+									fill="none"
+								>
+									<path
+										d="M9.74981 16.8244L23.8322 0L26 2.5878L9.74981 22L0 10.353L2.16628 7.76524L9.74981 16.8244Z"
+										fill="white"
+									/>
+								</svg>
+							</div>
+							<div class="ms-2">
+								<span class="Montserrat-500">Thành công</span>
+								<br />
+								<span class="Montserrat- toast-message"></span>́
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="toast-container position-fixed top-0 end-0 p-3">
+				<div
+					id="failToast"
+					class="toast"
+					role="alert"
+					aria-live="assertive"
+					aria-atomic="true"
+				>
+					<div class="toast-body pt-0">
+						<div class="row d-flex justify-content-end">
+							<button
+								type="button"
+								class="btn-close"
+								data-bs-dismiss="toast"
+								aria-label="Close"
+							></button>
+						</div>
+						<div class="row-flex d-flex">
+							<div class="rounded-circle w-auto p-2 cross">
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									width="26"
+									height="24"
+									viewBox="0 0 22 22"
+									fill="none"
+									class="pt-1"
+								>
+									<path
+										d="M9.42256 7.79002L16.4827 0.729919L18.4994 2.74668L11.4393 9.80678L18.4994 16.8669L16.4827 18.8836L9.42256 11.8235L2.36247 18.8836L0.345703 16.8669L7.4058 9.80678L0.345703 2.74668L2.36247 0.729919L9.42256 7.79002Z"
+										fill="white"
+									/>
+								</svg>
+							</div>
+							<div class="ms-2">
+								<span class="Montserrat-500">Thất bại</span>
+								<br />
+								<span class="Montserrat toast-message"></span>́
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+		<script
+			src="https://kit.fontawesome.com/92606ce77f.js"
+			crossorigin="anonymous"
+		></script>
+
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+			crossorigin="anonymous"
+		></script>
+		<script
+			src="https://code.jquery.com/jquery-3.7.1.js"
+			integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+			crossorigin="anonymous"
+		></script>
+		<script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js"></script>
+		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.10.0/jquery.timepicker.min.js"></script>
+		<!-- <script
+			src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.6.347/pdf.min.js"
+			integrity="sha512-Z8CqofpIcnJN80feS2uccz+pXWgZzeKxDsDNMD/dJ6997/LSRY+W4NmEt9acwR+Gt9OHN0kkI1CTianCwoqcjQ=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		></script> -->
+		<!-- <script type="module">
+			import pdfjsDist from "https://cdn.jsdelivr.net/npm/pdfjs-dist@4.0.269/+esm";
+			pdfjsLib.GlobalWorkerOptions.workerSrc =
+				"https://cdn.jsdelivr.net/npm/pdfjs-dist@4.0.269/build/pdf.worker.mjs";
+		</script> -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.2.228/pdf.min.js"></script>
+		<!-- <script src="//mozilla.github.io/pdf.js/build/pdf.mjs" type="module"></script> -->
+
+		<script src="js/utils.js"></script>
+		<script src="js/user_service.js"></script>
+		<script src="js/user_header.js"></script>
+	</body>
+</html>

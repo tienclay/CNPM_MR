@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="111" height="32" viewBox="0 0 111 32" fill="none">
+    <path d="M0.533203 10.0449C0.533203 4.52208 5.01036 0.0449219 10.5332 0.0449219H100.056C105.579 0.0449219 110.056 4.52207 110.056 10.0449V21.9561C110.056 27.4789 105.579 31.9561 100.056 31.9561H10.5332C5.01035 31.9561 0.533203 27.4789 0.533203 21.9561V10.0449Z" fill="url(#paint0_linear_231_8842)" />
+    <defs>
+        <linearGradient id="paint0_linear_231_8842" x1="8.19712" y1="25.6081" x2="98.9465" y2="-4.91499" gradientUnits="userSpaceOnUse">
+            <stop offset="0.0388426" stop-color="#7A34D4" />
+            <stop offset="0.0739581" stop-color="#4739D4" stop-opacity="0.926042" />
+            <stop offset="0.0791664" stop-color="#5B4FE1" stop-opacity="0.920834" />
+            <stop offset="1" stop-color="#0F96D0" stop-opacity="0.8" />
+        </linearGradient>
+    </defs>
+    <text id="text-select" x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-size="20" fill="white" >
+        Xác nhận in
+    </text>
+</svg>
